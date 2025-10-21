@@ -22,7 +22,7 @@ A responsive web application built for the Junior Web Developer Co-op position a
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/NikhilKH1/nber-multiverse.git
    cd nber-multiverse
    ```
 
