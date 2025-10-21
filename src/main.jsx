@@ -67,7 +67,6 @@ function replaceLoginWithProfile() {
 async function loadGDP() {
   console.log('Starting GDP data load...');
   
-  // Try multiple proxy services
   const proxies = [
     'https://api.allorigins.win/raw?url=',
     'https://cors-anywhere.herokuapp.com/',
@@ -106,7 +105,6 @@ async function loadGDP() {
       
       console.log('Processed rows:', rows.length);
       
-      // Clear any existing content
       const tbody = document.querySelector('#gdp-table tbody');
       if (tbody) tbody.innerHTML = '';
       
@@ -121,15 +119,14 @@ async function loadGDP() {
         responsive: true
       });
       console.log('DataTable created successfully');
-      return; // Success, exit function
+      return;
     } catch (error) {
       console.warn(`Proxy ${proxy} failed:`, error.message);
       lastError = error;
-      continue; // Try next proxy
+      continue;
     }
   }
-  
-  // All proxies failed
+
   console.error('All proxies failed, showing error message');
   const tbody = document.querySelector('#gdp-table tbody');
   if (tbody) {
