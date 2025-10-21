@@ -7,9 +7,9 @@ import { createRoot } from 'react-dom/client';
 import ExpandableField from './components/ExpandableField.jsx';
 import HeaderProfile from './components/HeaderProfile.jsx';
 
-const API_KEY = '3ed84af45a073408b81be89f8d8f5983';
-const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
-const FRED_URL = `https://api.stlouisfed.org/fred/series/observations?series_id=GDP&api_key=${API_KEY}&file_type=json&frequency=q`;
+const API_KEY = import.meta.env.VITE_API_KEY;
+const PROXY_URL = import.meta.env.VITE_PROXY_URL;
+const FRED_URL = `${import.meta.env.VITE_FRED_URL}?series_id=GDP&api_key=${API_KEY}&file_type=json&frequency=q`;
 
 function wireExpanders() {
   const expanders = document.querySelectorAll('.expander');
