@@ -127,23 +127,22 @@ html, body {
 .nber-header__navrow {
   display: flex;
   align-items: center;
-  gap: 0;
+  justify-content: flex-start;
   padding: 25px 0 10px;
 }
 
 .nber-nav {
   display: flex;
-  gap: 18px;
+  gap: 28px;
   flex-wrap: nowrap;
   overflow: auto hidden;
-  border-bottom: var(--nber-baseline) solid var(--nber-blue);
+  border-bottom: 1px solid var(--nber-blue);
   padding-bottom: 10px;
-  margin-right: 0;
 }
 .nber-nav a {
   color: var(--nber-blue);
   text-decoration: none;
-  font: 400 14px/1.2 var(--nber-font-ui);
+  font: 400 16px/1.2 var(--nber-font-ui);
   padding: 6px 4px;
   border-bottom: 2px solid transparent;
   white-space: nowrap;
@@ -160,7 +159,7 @@ html, body {
 .nber-search input {
   width: 100%;
   height: 48px;
-  padding: 10px 36px 10px 12px;
+  padding: 18px 36px 10px 12px;
   border: 1px solid var(--nber-blue);
   border-radius: 2px;
   font: 400 14px/1 var(--nber-font-ui);
@@ -235,6 +234,11 @@ html, body {
   margin-left: .5rem; margin-right: .9rem; color: #6b7280;
 }
 .breadcrumbs li:last-child::after { content: ""; }
+.breadcrumbs li:last-child,
+.breadcrumbs li[aria-current="page"],
+.breadcrumbs li:last-child * {
+  font-weight: normal;
+}
 .breadcrumbs a {
   text-decoration: underline;
   color: #6b7280;
@@ -290,14 +294,6 @@ html, body {
 .abstract,
 .content { padding-top: 1.5rem; margin-top: 0; }
 
-.abstract p,
-.content p {
-  text-align: left;
-  font-size: .95rem;
-  line-height: 1.75;
-  color: #111827;
-  margin-bottom: 1.2rem;
-}
 
 .content .image-wrap { margin: 1rem 0; }
 .content img {
@@ -328,6 +324,8 @@ html, body {
   min-width: 0;
   flex-shrink: 0;
   white-space: nowrap;
+  text-align: left !important;
+  justify-content: flex-start !important;
 }
 .label {
   font-weight: 700;
@@ -337,6 +335,7 @@ html, body {
   text-transform: uppercase;
   letter-spacing: .5px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-align: left !important;
 }
 .value {
   color: #111827;
@@ -345,6 +344,7 @@ html, body {
   font-size: .875rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   display: flex; align-items: center; gap: .5rem; flex-wrap: nowrap; white-space: nowrap;
+  text-align: left !important;
 }
 .expander, .expander-btn {
   margin-left: auto;
@@ -380,8 +380,23 @@ html, body {
   word-wrap: break-word;
 }
 .gdp-section { margin: 2rem 0; }
+.gdp-section h2 {
+  text-align: left;
+}
 .table-scroll { overflow-x: auto; width: 100%; }
-#gdp-table { width: 100%; min-width: 520px; }
+#gdp-table {
+  width: 100%;
+  min-width: 520px;
+  text-align: left;
+}
+
+#gdp-table th {
+  text-align: center;
+}
+
+#gdp-table td {
+  text-align: left;
+}
 
 @media (max-width: 768px) {
   .social-sidebar {
@@ -633,4 +648,82 @@ html, body {
     font-size: 0.85rem;
     white-space: normal;
   }
+}
+
+/* Force unbold for breadcrumb current page */
+.breadcrumbs li[aria-current="page"] {
+  font-weight: 400;
+}
+
+.abstract,
+.content,
+.gdp-section {
+  max-width: 720px;  
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+
+.abstract {
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--nber-border);
+}
+
+.abstract p,
+.content p {
+  --toast-icon-margin-start: -3px;
+  --toast-icon-margin-end: 4px;
+  --toast-svg-margin-start: -1px;
+  --toast-svg-margin-end: 0px;
+  --toast-button-margin-start: auto;
+  --toast-button-margin-end: 0;
+  --toast-close-button-start: 0;
+  --toast-close-button-end: unset;
+  --toast-close-button-transform: translate(-35%, -35%);
+  text-size-adjust: 100%;
+  --bs-breakpoint-xs: 0;
+  --bs-breakpoint-sm: 576px;
+  --bs-breakpoint-md: 768px;
+  --bs-breakpoint-lg: 992px;
+  --bs-breakpoint-xl: 1200px;
+  --bs-breakpoint-xxl: 1400px;
+  --c-gradient-fallback: #fff;
+  font-family: Arimo,"Lucida Grande",helvetica,arial,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #000;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  margin: 0 0 1.5rem;
+  margin-bottom: 0;
+}
+
+
+.content .image-wrap { 
+  display: block;
+  margin: 2rem 0;
+  text-align: center;
+}
+.content img {
+  display: block;
+  max-width: 90%; 
+  height: auto;
+  margin: 0 auto;
+  border-radius: .5rem;
+  border: 1px solid var(--nber-border);
+  box-shadow: var(--nber-shadow-md);
+}
+
+
+.section-divider {
+  width: 100%;
+  max-width: 720px;
+  height: 1px;
+  background: var(--nber-border);
+  margin: 2rem auto;
 }
