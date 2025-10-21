@@ -1,7 +1,7 @@
 export const config = {
   api: {
-    key: import.meta.env.VITE_API_KEY || 'your_api_key_here',
-    baseUrl: import.meta.env.VITE_API_BASE_URL || 'https://api.nber.org',
+    key: import.meta.env.VITE_API_KEY,
+    baseUrl: import.meta.env.VITE_API_BASE_URL,
     timeout: parseInt(import.meta.env.VITE_API_TIMEOUT) || 30000,
     retries: 3
   },
