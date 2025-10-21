@@ -83,7 +83,7 @@ This project emphasizes:
 ## Acknowledgments
 
 - **Design Inspiration**: [NBER.org](https://www.nber.org/) for layout and styling
-- **Economic Data**: Federal Reserve Bank of St. Louis (FRED®)
+- **Economic Data**: Federal Reserve Bank of St. Louis (FRED)
 - **Images**: Unsplash (royalty-free stock photography)
 - **Icons**: Modern web standards and accessibility guidelines
 
